@@ -23,7 +23,7 @@ public class User {
         }
     }
 
-    public void SendMessage(String msg){
+    public void sendMessage(String msg){
         send.println(msg);
         send.flush();
     }
@@ -32,7 +32,7 @@ public class User {
         return this.Client;
     }
 
-    public void SetUserID(String id){
+    public void setUserID(String id){
         this.id = id;
     }
 
