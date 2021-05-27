@@ -7,21 +7,8 @@ import java.io.BufferedReader;
 
 public class Receive extends Thread{
     private Socket Server;
-    private BufferedReader reader;
+    private BufferedReader msgbuff;
+    private String msg;
 
-    public void setSocket(Socket Server) {
-        this.Server = Server;
-    }
-
-    private void makeReader() {
-        try {
-            reader = new BufferedReader(new InputStreamReader(Server.getInputStream()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void receive(){
-    }
 
 }

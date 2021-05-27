@@ -10,6 +10,14 @@ public class Send extends Thread{
     private String id;
     private String ans;
 
+    public void run() {
+        super.run();
+        makeSender();
+        sendID();
+        sendANS();
+
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -18,7 +26,7 @@ public class Send extends Thread{
         this.Server = Server;
     }
 
-    private void makeWriter(){
+    private void makeSender(){
         try{
             writer = new PrintWriter(Server.getOutputStream());
         }catch (IOException e){
@@ -35,7 +43,4 @@ public class Send extends Thread{
         writer.println(ans);
         writer.flush();
     }
-
-
-
 }
