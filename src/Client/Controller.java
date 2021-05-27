@@ -9,19 +9,19 @@ import Client.UI.*;
 public class Controller {
 
     private Socket Server;
-    private String ip=null;
-    private String ans=null;
-    private int port=0;
+    private String ip = null;
+    private String ans = null;
+    private int port = 0;
     private Send SendThread;
     private Receive ReceiveThread;
     private Brush brush;
     private BufferedImage imgbuff;
     private JTextArea screen;
-    private String id="test";
+    private String id = "test";
     private JTextField answerfield;
 
     public void start() {
-        if(ip!=null && port!=0) {
+        if (ip != null && port != 0) {
             connectServer();
             //	makeThread();
         }
@@ -34,10 +34,14 @@ public class Controller {
     public void setPort(int port) {
         this.port = port;
     }
-    public void setAns(String ans){this.ans = ans;}
+
+    public void setAns(String ans) {
+        this.ans = ans;
+    }
+
     private void connectServer() {
         try {
-            Server = new Socket(ip,port);
+            Server = new Socket(ip, port);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -49,6 +53,11 @@ public class Controller {
         SendThread.setSocket(Server);
         SendThread.setId(id);
         SendThread.setAns(ans);
+        ReceiveThread.setAnswerField(answerfield);
+        ReceiveThread.setSocket(Server);
+        ReceiveThread.setBrush(brush);
+        ReceiveThread.setScreen(screen);
+        ReceiveThread.setImgbuff(imgbuff);
         SendThread.start();
         ReceiveThread.start();
     }
@@ -69,6 +78,7 @@ public class Controller {
         this.imgbuff = imgbuff;
         makeThread();
     }
+
     public void setAnswerField(JTextField answerfield) {
         this.answerfield = answerfield;
     }
