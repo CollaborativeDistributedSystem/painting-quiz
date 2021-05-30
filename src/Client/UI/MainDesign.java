@@ -54,7 +54,7 @@ public class MainDesign {
     private Colorbtns btns;
 
     private Logoutbtn logoutbtn;
-    private Savebtn savebtn;
+
     public void makeFrame() {
         drawFrame();
         drawImgSection();
@@ -124,7 +124,7 @@ public class MainDesign {
 
         makeClearButton();
         makeLogoutButton();
-        makeSaveButton();
+
     }
 
     private void makeLogoutButton(){
@@ -133,11 +133,7 @@ public class MainDesign {
         LogoutButtonEvent();
     }
 
-    private void makeSaveButton(){
-        savebtn = new Savebtn();
-        frame.add(savebtn);
-        SaveButtonEvent();
-    }
+
 
     private void makeClearButton() {
         drawClearButton();
@@ -171,28 +167,7 @@ public class MainDesign {
         });
     }
 
-    public void SaveButtonEvent(){
-        savebtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //reference
-                //https://docs.oracle.com/javase/tutorial/2d/images/saveimage.html
-                System.out.println("save button clicked");
-                File outputfile = new File("image.png");
-                try{
-                    ImageIO.write(imgbuff, "jpg", outputfile);
-                }catch(IOException ex){
-                    System.out.println(ex);;
-                }
-                if(outputfile.exists()){
-                    System.out.println("outputfile exists");
-                }
-                else{
-                    System.out.println("outputfile doens't exist");
-                }
-            }
-        });
-    }
+
 
     private void drawAnswerField() {
 

@@ -10,17 +10,17 @@ import java.awt.event.ActionListener;
 import Client.Send;
 import Client.GameController;
 public class Graybtn extends JButton {
+
     private Brush brush;
 
     public Graybtn(){
-        setBounds(10,10,70,40);
+        setBounds(10, 320, 70, 40);
         setBackground(Color.GRAY);
     }
-    private void makeEvent(){
+    private void makeEvent() {
         this.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
-                if(GameController.turnflag==true){
+                if(GameController.turnflag==true) {
                     Send.writer.println("Color:GRAY");
                     Send.writer.flush();
                     brush.setColor(Color.GRAY);
@@ -29,8 +29,9 @@ public class Graybtn extends JButton {
         });
     }
 
-    public void setBrush(Brush brush){
+    public void setBrush(Brush brush) {
         this.brush = brush;
         makeEvent();
     }
+
 }

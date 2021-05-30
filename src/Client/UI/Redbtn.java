@@ -9,19 +9,17 @@ import java.awt.event.ActionListener;
 
 import Client.Send;
 import Client.GameController;
-public class Redbtn extends JButton {
+public class Redbtn extends JButton{
     private Brush brush;
-
     public Redbtn(){
-        setBounds(10,10,70,40);
+        setBounds(10, 60, 70, 40);
         setBackground(Color.RED);
     }
-    private void makeEvent(){
+    private void makeEvent() {
         this.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
-                if(GameController.turnflag==true){
-                    Send.writer.println("Color:BLACK");
+                if(GameController.turnflag==true) {
+                    Send.writer.println("Color:RED");
                     Send.writer.flush();
                     brush.setColor(Color.RED);
                 }
@@ -29,8 +27,9 @@ public class Redbtn extends JButton {
         });
     }
 
-    public void setBrush(Brush brush){
+    public void setBrush(Brush brush) {
         this.brush = brush;
         makeEvent();
     }
+
 }
