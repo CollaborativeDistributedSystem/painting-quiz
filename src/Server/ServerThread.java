@@ -47,7 +47,9 @@ public class ServerThread extends Thread{
                     if(msg.contains("#")){
                         String[] pars = msg.split(":");
                         String[] idpars = pars[1].split(" ");
-                        System.out.println(pars[1]);
+                        String[] oneid = idpars[0].split("#");
+
+                        System.out.println(oneid);
                         if(pars[1].equals(GameController.answer+" ") && GameController.answerflag == false && (!(this.ID).equals(GameController.ID))) {
                             GameController.answerflag = true;
                             GameController.rightAnswer(ID);
@@ -56,7 +58,8 @@ public class ServerThread extends Thread{
                             pars[1] += " ";
                             msg = "CHAT:" + "[" + ID + "] " + pars[1];
                         }
-                        oneUserSendMsg(idpars[0]);
+                        oneUserSendMsg(oneid[1]);
+                        continue;
                     }else{
 
                         String[] pars = msg.split(":");
@@ -125,7 +128,7 @@ public class ServerThread extends Thread{
 
     private void JoinFieldUpdate() {
         String str = new String();
-        str = "�젒�냽�쑀��  : ";
+        str = "Connected User  : ";
         for (int i = 0; i < ServerController.List.size(); i++) {
             str += ServerController.List.get(i).getUserID() + " ";
         }
