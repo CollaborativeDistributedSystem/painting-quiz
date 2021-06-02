@@ -70,8 +70,7 @@ public class ServerThread extends Thread{
                             msg = "CHAT:" + "[" + ID + "] " + pars[1];
                         }
                     }
-                    allUserSendMsg();
-                }
+                }allUserSendMsg();
             }catch (IOException e){
                 msg = "CHAT:" + ID + " out the room.";
                 allUserSendMsg();
