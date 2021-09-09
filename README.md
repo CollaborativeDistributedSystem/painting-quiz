@@ -1,11 +1,17 @@
-# painting-quiz
+## How our Application Operates
+1. run the server
+![image](https://user-images.githubusercontent.com/39490214/132691507-8418d480-b17e-4f7e-917d-a98419a50d72.png)
 
-## Application Description
-1) Server를 먼저 실행시켜 Client가 들어올 수 계속 대기를 한다. \
-2) Client가 Server에서 설정한 IP, ID, ANS(문제의 답)을 Server로 보낸다.\
-3) Server가 Client가 보낸 ID, ANS 정보를 받아 ArrayList에 User정보를 저장한 후 해당 User를 위한 Thread를 실행시킨다.\
-4) 해당 Thread는 한 Client가 Action을 취할 때 마다 Protocol에 맞춰 다른 Client들에게 메시지를 보낸다.\
-5) 메시지를 받은 유저들은 Protocol에 맞춰 Action을 취한다.\
-6) Server가 GameStart 버튼을 누르면 Client들에게 게임을 시작한다는 메시지를 보내고 들어온 순서대로 게임을 시작한다.\
-7) 제출 문제는 Client들이 들어올 때 입력한 ANS이며 다른 Client들은 채팅창에 정답을 입력하면 Server에서 일치한다면 정답임을 알려주고 다음 차례로 넘어간다.\
-8) Client가 LogOut을 할 경우 해당 Client가 나갔다는 Message를 뿌려준다.\
+2. clients connect to the IP address assigned to the server.
+![image](https://user-images.githubusercontent.com/39490214/132691613-1b445cf5-4954-41a3-8794-4df731ae8da1.png)
+![image](https://user-images.githubusercontent.com/39490214/132691642-cb07a0b7-214a-42a4-bb4d-9a3dd732ea7c.png)
+![image](https://user-images.githubusercontent.com/39490214/132691695-78f5a0c0-c77e-4531-b344-ba24bffe0744.png)
+
+4. painting quiz frame shows up to clients
+5. server gets the user information
+6. clients can check user informantion in the chatting room
+7. clients can chat with other users
+8. '#id message' to whisper
+9. users in turn get the chance to draw
+10. users who aren't it guess the answer
+11. clients log out with the log out button
